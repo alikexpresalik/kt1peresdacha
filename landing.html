@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="ru">
 
 <head>
     <meta charset="UTF-8">
@@ -9,78 +9,166 @@
 </head>
 
 <body>
-    <header class="header">
-        <div class="logo">Catties</div>
-        <nav class="nav">
-            <ul class="nav-list">
-                <li><a href="#main">Главная</a></li>
-                <li><a href="#products">Товары</a></li>
-                <li><a href="#about">О нас</a></li>
+
+    <header class="header page-header">
+        <div class="logo header-logo">Catties</div>
+        <nav class="nav main-nav">
+            <ul class="nav-list header-menu">
+                <li><a class="nav-link" href="#main">Главная</a></li>
+                <li><a class="nav-link" href="#products">Товары</a></li>
+                <li><a class="nav-link" href="#faq">FAQ</a></li>
+                <li><a class="nav-link" href="#order-form">Заказ</a></li>
+                <li><a class="nav-link" href="#about">О нас</a></li>
             </ul>
         </nav>
+        <div class="header-actions">
+            <div class="cart-counter">
+                Корзина: <span id="cart-count">0</span>
+            </div>
+            <button id="theme-toggle" class="btn btn-secondary btn-sm">Тема</button>
+        </div>
     </header>
 
-    <main>
-        <section class="hero" id="main">
-            <div class="hero-content">
-                <h1>Минималистичные вещи для твоей жизни</h1>
-                <p>Мы делаем простые и качественные (Киталия) товары на каждый день</p>
-                <a href="#products" class="btn hero-btn">Смотреть каталог</a>
+    <main class="main-content">
+
+        <section class="hero hero-section" id="main">
+            <div class="hero-content text-box">
+                <h1 class="hero-title title-main">Минималистичные вещи для твоей жизни</h1>
+                <p class="hero-desc desc-text">Мы делаем простые и качественные (Киталия) товары на каждый день</p>
+                <a href="#products" class="btn btn-primary hero-btn">Подробнее</a>
             </div>
         </section>
 
-        <section class="products" id="products">
-            <h2>Популярные товары</h2>
-            <div class="product-grid">
+        <section class="products catalog-section" id="products">
+            <h2 class="section-title title-secondary">Популярные товары</h2>
+            <div class="product-grid catalog-grid">
 
-                <article class="card">
-                    <img src="bag.jfif" alt="Блокнот">
-                    <div class="card-body">
-                        <h3>Кожаный блокнот</h3>
-                        <p>Удобный блокнот для живущих в камменом веке</p>
-                        <span class="price">1 200 ₽</span>
-                        <button class="btn">Прикупить</button>
+                <article class="card product-card">
+                    <img class="card-img" src="bag.jfif" alt="Блокнот">
+                    <div class="card-body item-info">
+                        <h3 class="card-title">Кожаный блокнот</h3>
+                        <p class="card-text desc-text">Удобный блокнот для живущих в каменном веке</p>
+                        <span class="price item-price">1 200 ₽</span>
+                        <div class="card-controls">
+                            <button class="btn btn-primary btn-sm btn-buy">В корзину</button>
+                            <button class="btn btn-outline btn-sm btn-remove">Убрать</button>
+                        </div>
                     </div>
                 </article>
 
-                <article class="card">
-                    <img src="mug.jfif" alt="кружка">
-                    <div class="card-body">
-                        <h3>Керамическая кружка</h3>
-                        <p>Верх запаян, а дна нет</p>
-                        <span class="price">850 ₽</span>
-                        <button class="btn">Прикупить</button>
+                <article class="card product-card">
+                    <img class="card-img" src="mug.jfif" alt="Кружка">
+                    <div class="card-body item-info">
+                        <h3 class="card-title">Керамическая кружка</h3>
+                        <p class="card-text desc-text">Верх запаян, а дна нет</p>
+                        <span class="price item-price">850 ₽</span>
+                        <div class="card-controls">
+                            <button class="btn btn-primary btn-sm btn-buy">В корзину</button>
+                            <button class="btn btn-outline btn-sm btn-remove">Убрать</button>
+                        </div>
                     </div>
                 </article>
 
-                <article class="card">
-                    <img src="watch.jfif" alt="часы">
-                    <div class="card-body">
-                        <h3>Минималистичные часы</h3>
-                        <p>Строгий дизайн, такой строгий, что даже будильник завидует</p>
-                        <span class="price">4 500 ₽</span>
-                        <button class="btn">Прикупить</button>
+                <article class="card product-card">
+                    <img class="card-img" src="watch.jfif" alt="Часы">
+                    <div class="card-body item-info">
+                        <h3 class="card-title">Минималистичные часы</h3>
+                        <p class="card-text desc-text">Строгий дизайн, такой строгий, что даже будильник завидует</p>
+                        <span class="price item-price">4 500 ₽</span>
+                        <div class="card-controls">
+                            <button class="btn btn-primary btn-sm btn-buy">В корзину</button>
+                            <button class="btn btn-outline btn-sm btn-remove">Убрать</button>
+                        </div>
                     </div>
                 </article>
 
             </div>
         </section>
 
-        <section class="about" id="about">
-            <div class="about-container">
-                <h2>О нашем бренде</h2>
-                <p>Catties начался с простой идеи: убрать всё лишнее и оставить только функциональность. Мы
-                    производим
-                    базовые вещи, которые служат годами и не выходят из моды. Каждое изделие проходит строгий контроль
-                    качества перед отправкой.</p>
+        <section class="faq-section" id="faq">
+            <div class="faq-container container-box">
+                <h2 class="section-title title-secondary">Частые вопросы</h2>
+                <div class="faq-list">
+                    <div class="faq-item">
+                        <button class="faq-question">Где производятся товары?</button>
+                        <div class="faq-answer">
+                            <p>В секретных подвалах Киталии под строжайшим контролем качества</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">Сколько ждать доставку?</button>
+                        <div class="faq-answer">
+                            <p>От двух дней до бесконечности, в зависимости от настроения курьера</p>
+                        </div>
+                    </div>
+                    <div class="faq-item">
+                        <button class="faq-question">Можно ли вернуть кружку без дна?</button>
+                        <div class="faq-answer">
+                            <p>Нет, это запатентованная технология</p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </section>
+
+        <section class="form-section" id="order-form">
+            <div class="form-container container-box">
+                <h2 class="section-title title-secondary">Оформить заявку</h2>
+                <form class="custom-form" id="feedback-form">
+                    <div class="form-group field-group">
+                        <label class="form-label" for="user-name">Как обычно зовут</label>
+                        <input class="form-input text-field" type="text" id="user-name" required
+                            placeholder="Эй, слышь (свист)">
+                    </div>
+
+                    <div class="form-group field-group">
+                        <label class="form-label" for="user-email">Почта</label>
+                        <input class="form-input text-field" type="email" id="user-email" required
+                            placeholder="sumbatian@ithub.ru">
+                    </div>
+
+                    <div class="form-group field-group">
+                        <label class="form-label" for="product-choice">Какой товар интересует?</label>
+                        <select class="form-input select-field" id="product-choice">
+                            <option value="notebook">Кожаный блокнот</option>
+                            <option value="mug">Керамическая кружка</option>
+                            <option value="watch">Минималистичные часы</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group field-group">
+                        <label class="form-label" for="satisfaction">Оценка каталога (от 1 до 2)</label>
+                        <input class="form-input number-field" type="number" id="satisfaction" min="1" max="2"
+                            value="2">
+                    </div>
+
+                    <div class="form-group field-group">
+                        <label class="form-label" for="user-message">Комментарий или вопрос</label>
+                        <textarea class="form-input textarea-field" id="user-message" rows="3"
+                            placeholder="Напишите пару букв..."></textarea>
+                    </div>
+
+                    <button type="submit" class="btn btn-primary btn-submit">Отправить заявку</button>
+                </form>
+            </div>
+        </section>
+
+        <section class="about info-section" id="about">
+            <div class="about-container container-box">
+                <h2 class="section-title title-secondary">О нашем бренде</h2>
+                <p class="about-text desc-text">Catties начался с простой идеи: убрать все лишнее и оставить только
+                    функциональность. Производим базовые вещи, которые служат годами и не выходят из моды потому, что
+                    никогда в нее не входили. Каждое изделие проходит строгий контроль качества перед отправкой</p>
+            </div>
+        </section>
+
     </main>
 
-    <!-- Подвал с названием компании -->
-    <footer class="footer">
-        <p>&copy; 2026 Компания Catties. Все права защищены, только попробуй что-то спереть.</p>
+    <footer class="footer page-footer">
+        <p class="footer-text">&copy; 2026 Компания Catties. Все права защищены, только попробуй что-то спереть</p>
     </footer>
+
+    <script src="script.js"></script>
 </body>
 
 </html>

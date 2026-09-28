@@ -1,44 +1,123 @@
 * {
     box-sizing: border-box;
-    font-family: Arial, sans-serif;
 }
 
 body {
     background-color: #f7f9fa;
-    color: #333;
+    color: #333333;
+    font-family: Arial, Helvetica, sans-serif;
     line-height: 1.6;
+    transition: background-color 0.28s ease, color 0.1s ease;
+}
+
+h1,
+h2,
+h3 {
+    font-family: Georgia, 'Times New Roman', serif;
+    font-weight: 700;
+}
+
+body.dark-mode {
+    background-color: #121212;
+    color: #e0e0e0;
+}
+
+body.dark-mode .header {
+    background-color: #1e1e1e;
+    box-shadow: 0 2px 8px rgba(0, 0, 0, 0.7);
+}
+
+body.dark-mode .logo {
+    color: #ffffff;
+}
+
+body.dark-mode .nav-link {
+    color: #cccccc;
+}
+
+body.dark-mode .nav-link:hover {
+    color: #3b82f6;
+}
+
+body.dark-mode .card,
+body.dark-mode .form-container,
+body.dark-mode .about,
+body.dark-mode .faq-item {
+    background-color: #1e1e1e;
+    border-color: #333333;
+}
+
+body.dark-mode .card-text,
+body.dark-mode .about-text,
+body.dark-mode .faq-answer p {
+    color: #aaaaaa;
+}
+
+body.dark-mode .form-input,
+body.dark-mode .faq-question {
+    background-color: #2a2a2a;
+    border-color: #444444;
+    color: #ffffff;
+}
+
+body.dark-mode .footer {
+    background-color: #0a0a0a;
 }
 
 .header {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 20px 40px;
+    padding: 15px 40px;
     background-color: #ffffff;
-    box-shadow: 0 2px 5px #222;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.08);
+    position: sticky;
+    top: 0;
+    z-index: 100;
 }
 
 .logo {
-    font-size: 22px;
+    font-size: 24px;
     font-weight: bold;
-    color: #222;
+    color: #1f2937;
 }
 
 .nav-list {
     display: flex;
     list-style: none;
-    gap: 25px;
+    gap: 20px;
 }
 
-.nav-list a {
+.nav-link {
     text-decoration: none;
-    color: #555;
+    color: #4b5563;
     font-weight: 500;
-    transition: color 0.44s ease;
+    font-size: 15px;
+    transition: color 0.2s ease;
 }
 
-.nav-list a:hover {
-    color: #007bff;
+.nav-link:hover {
+    color: #2563eb;
+}
+
+.header-actions {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+}
+
+.cart-counter {
+    font-size: 14px;
+    font-weight: bold;
+    background-color: #e5e7eb;
+    padding: 6px 12px;
+    border-radius: 20px;
+    color: #1f2937;
+}
+
+body.dark-mode .cart-counter {
+    background-color: #333333;
+    color: #ffffff;
 }
 
 .hero {
@@ -46,51 +125,86 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    min-height: 400px;
-    background: linear-gradient(13deg, #1f2937, #374151);
+    min-height: 420px;
+    background: linear-gradient(15deg, #1f2937, #111827);
     color: #ffffff;
-    padding: 20px;
+    padding: 40px 20px;
 }
 
-.hero h1 {
-    font-size: 36px;
+.hero-title {
+    font-size: 38px;
     margin-bottom: 15px;
 }
 
-.hero p {
+.hero-desc {
     font-size: 18px;
     margin-bottom: 25px;
     color: #d1d5db;
 }
 
-
 .btn {
     display: inline-block;
-    padding: 10px 20px;
-    background-color: #007bff;
-    color: white;
-    text-decoration: none;
     border: none;
-    border-radius: 4px;
+    border-radius: 6px;
     cursor: pointer;
+    text-decoration: none;
     font-size: 15px;
-    transition: background-color 0.23s ease, transform 0.21s ease;
+    font-weight: 500;
+    transition: background-color 0.22s ease, transform 0.22s ease;
 }
 
-.btn:hover {
-    background-color: #0056b3;
-    transform: translateY(-2px);
+.btn:active {
+    transform: scale(0.98);
 }
 
+.btn-primary {
+    background-color: #2563eb;
+    color: #ffffff;
+    padding: 10px 22px;
+}
 
-.products {
-    max-width: 1100px;
+.btn-primary:hover {
+    background-color: #1d4ed8;
+}
+
+.btn-secondary {
+    background-color: #4b5563;
+    color: #ffffff;
+    padding: 8px 16px;
+}
+
+.btn-secondary:hover {
+    background-color: #374151;
+}
+
+.btn-outline {
+    background-color: transparent;
+    color: #dc2626;
+    border: 1px solid #dc2626;
+    padding: 7px 15px;
+}
+
+.btn-outline:hover {
+    background-color: #dc2626;
+    color: #ffffff;
+}
+
+.btn-sm {
+    padding: 6px 12px;
+    font-size: 13px;
+}
+
+.products,
+.faq-section,
+.form-section {
+    max-width: 1050px;
     margin: 60px auto;
     padding: 0 20px;
 }
 
-.products h2 {
+.section-title {
     text-align: center;
+    font-size: 28px;
     margin-bottom: 35px;
 }
 
@@ -101,24 +215,46 @@ body {
 }
 
 .card {
-    background: #ffffff;
+    background-color: #ffffff;
     border: 1px solid #e5e7eb;
     border-radius: 8px;
     overflow: hidden;
     display: flex;
     flex-direction: column;
-    transition: transform 0.343s ease, box-shadow 0.2s ease;
+    transition: transform 0.22s ease, box-shadow 0.23s ease;
 }
 
 .card:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 15px #222;
+    transform: translateY(-4px);
+    box-shadow: 0 10px 18px rgba(0, 0, 0, 0.10);
 }
 
-.card img {
+.card-img {
     width: 100%;
     height: 200px;
     object-fit: cover;
+}
+
+@media (max-width: 768px) {
+    .header {
+        flex-direction: column;
+        gap: 15px;
+        padding: 15px;
+    }
+
+    .nav-list {
+        flex-wrap: wrap;
+        justify-content: center;
+        gap: 12px;
+    }
+
+    .product-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .hero-title {
+        font-size: 26px;
+    }
 }
 
 .card-body {
@@ -128,36 +264,107 @@ body {
     flex-grow: 1;
 }
 
-@media (max-width: 768px) {
-    .header {
-        flex-direction: column;
-        gap: 15px;
-    }
-
-    .product-grid {
-        grid-template-columns: 1fr;
-    }
-
-    .hero h1 {
-        font-size: 26px;
-    }
-}
-
-.card-body h3 {
+.card-title {
+    font-size: 19px;
     margin-bottom: 10px;
 }
 
-.card-body p {
+.card-text {
     font-size: 14px;
-    color: #666;
+    color: #6b7280;
     margin-bottom: 15px;
     flex-grow: 1;
 }
 
-.card-body .price {
+.price {
     font-size: 18px;
     font-weight: bold;
     margin-bottom: 15px;
+}
+
+.card-controls {
+    display: flex;
+    gap: 10px;
+    align-items: center;
+}
+
+.faq-container {
+    max-width: 750px;
+    margin: 0 auto;
+}
+
+.faq-item {
+    border: 1px solid #e5e7eb;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    background-color: #ffffff;
+    overflow: hidden;
+}
+
+.faq-question {
+    width: 100%;
+    text-align: left;
+    padding: 16px 20px;
+    background: none;
+    border: none;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    font-family: inherit;
+    color: inherit;
+    display: flex;
+    justify-content: space-between;
+}
+
+.faq-answer {
+    display: none;
+    padding: 0 20px 16px;
+    font-size: 14px;
+    color: #4b5563;
+}
+
+.faq-item.active .faq-answer {
+    display: block;
+}
+
+.form-container {
+    max-width: 600px;
+    margin: 0 auto;
+    background-color: #ffffff;
+    padding: 30px;
+    border-radius: 8px;
+    border: 1px solid #e5e7eb;
+}
+
+.form-group {
+    margin-bottom: 18px;
+}
+
+.form-label {
+    display: block;
+    margin-bottom: 6px;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.form-input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid #d1d5db;
+    border-radius: 5px;
+    font-size: 14px;
+    outline: none;
+    font-family: inherit;
+}
+
+.form-input:focus {
+    border-color: #2563eb;
+}
+
+.btn-submit {
+    width: 100%;
+    padding: 12px;
+    font-size: 16px;
 }
 
 .about {
@@ -168,24 +375,20 @@ body {
 }
 
 .about-container {
-    max-width: 800px;
+    max-width: 750px;
     margin: 0 auto;
     text-align: center;
 }
 
-.about h2 {
-    margin-bottom: 20px;
-}
-
-.about p {
-    font-size: 16px;
+.about-text {
+    font-size: 15px;
     color: #4b5563;
 }
 
 .footer {
     text-align: center;
-    padding: 25px 20px;
+    padding: 30px 20px;
     background-color: #111827;
     color: #9ca3af;
-    font-size: 14px;
+    font-size: 13px;
 }
